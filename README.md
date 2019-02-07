@@ -1,15 +1,26 @@
 # knative-pfs-workshop
-Content for a Knative, PFS workshop
+Content for a Knative, PFS workshop. The material is sourced from various docs, blogs, repos and will change frequently as the PFS and underlying Knative projects evolve. The audience is customers who would like to learn about Knative and PFS. You can use it for lunch and learn sessions, half day or full day workshop. 
 
 # Contents
 - Knative
   - What is Knative?
   - Knative Features: Building..
-    
+    - Building components - Build, BuildTemplate, Builder, ServiceAccount
+    - CI/CD pipeline, source to image
+    - Buildpacks, Pack CLI
+  - Demo, Build
   - Knative Features: Serving..
-    - Kubernetes CRD - Service, Route, Configuration and Resources
-    
+    - Knative Serving Kubernetes CRD - Service, Route, Configuration and Resources
+  - Demo, Serve
   - Knative Features: Eventing..
+    - Producers, Source, Channels, Service, Events
+  - Demo, Event/Scaling
   - Why Knative, Value?
-  - Demo, 
-  
+- PFS
+  - What is PFS?
+  - Developer Experience of using PFS?
+  - Demo PFS
+  - Value - Developer and Operator Efficiencies over DIY Knative
+- Knative SIGs and Roadmaps
+- Learning Resources
+
