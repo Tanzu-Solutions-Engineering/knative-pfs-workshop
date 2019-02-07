@@ -1,4 +1,4 @@
-# knative-pfs-workshop
+# Knative, PFS, Education and Workshop
 Content for Knative, PFS workshop. The material is sourced from various docs, blogs, repos and will change frequently as the PFS and underlying Knative projects evolve. The audience for this workshop content is, customers who would like to learn about Knative and PFS. You can use it for lunch and learn sessions, half day or full day workshop. 
 
 # Contents
