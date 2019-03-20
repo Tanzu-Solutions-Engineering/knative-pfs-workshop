@@ -1,6 +1,6 @@
 ---
 title: Knative Workshop Guide
-layout: post
+layout: page
 ---
 
 
