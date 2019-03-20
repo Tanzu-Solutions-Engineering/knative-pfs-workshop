@@ -5,10 +5,10 @@ metadata:
   namespace: default # The namespace we're working in; also appears in the URL to access the app
 spec:
   traffic:
-    - revisionName: blue-green-demo-76vs7
+    - revisionName: blue-green-demo-br6zx
       percent: 50 # 50% traffic goes to this revision
       name: v2 # A named route
 
-    - revisionName: blue-green-demo-z68ng
+    - revisionName: blue-green-demo-rrvtg
       percent: 50 # 50% traffic goes to this revision  
       name: v1 # A named route
