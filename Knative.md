@@ -494,7 +494,7 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
     ```
 
     ```bash
-    kubectl apply -f blue-green-demo-config-v3.yaml
+    kubectl apply -f blue-green-demo-route-v3.yaml
     ```
 
     Now, lets curl it and get the response. 
