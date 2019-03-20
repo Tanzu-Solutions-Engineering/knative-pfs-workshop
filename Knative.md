@@ -1,3 +1,7 @@
+---
+layout: post
+---
+
 # Knative Workshop Guide
 
 ## 1. Installing Knative on PKS
