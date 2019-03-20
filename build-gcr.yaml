@@ -1,0 +1,16 @@
+apiVersion: build.knative.dev/v1alpha1
+kind: Build
+metadata:
+  name: docker-build
+spec:
+  serviceAccountName: build-bot-gcr
+  source:
+    git:
+      url: https://github.com/dgageot/hello.git
+      revision: master
+  steps:
+  - name: build-and-push
+    image: gcr.io/kaniko-project/executor:v0.1.0
+    args:
+    - --dockerfile=/workspace/Dockerfile
+    - --destination=gcr.io/fe-rajain/hello-nginx            
