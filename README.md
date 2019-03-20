@@ -24,6 +24,10 @@ Content for Knative, PFS workshop. The material is sourced from various docs, bl
 - Knative SIGs and Roadmaps
 - Learning Resources
 
+# Links to Detail Pages
 
-[Knative](./Knative.md)
-
+1. [Knative](./Knative.md)
+2. [PFS](./Pfs.md)
+3. [Project Riff](./Riff.md)
+4. [Buildpacks.io](./Buildpacks.md)
+5. [Tekton Build Pipelines](./Tekton.md)
