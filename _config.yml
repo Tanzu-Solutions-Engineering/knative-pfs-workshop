@@ -1,4 +1,4 @@
-theme: jekyll-theme-cayman
+theme: jekyll-theme-minimal
 title: Knative and PFS Workshop
 logo: /assets/img/knative-logo-rgb.png
 description: Assets for a Knative,PFS, Riff Workshop.
