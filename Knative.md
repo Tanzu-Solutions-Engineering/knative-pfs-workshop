@@ -3,6 +3,10 @@ title: Knative Workshop Guide
 layout: page
 ---
 
+# References
+
+1. [Knative Slide Deck](https://docs.google.com/presentation/d/1wJ5HN7qeaUVZp_ZcLQMjDkP7p2CpejLzJhz3CG3DIwk/edit?usp=sharing)
+
 
 ## 1. Installing Knative on PKS
 
