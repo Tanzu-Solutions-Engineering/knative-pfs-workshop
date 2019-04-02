@@ -7,7 +7,6 @@ layout: page
 
 1. [Knative Slide Deck](https://docs.google.com/presentation/d/1wJ5HN7qeaUVZp_ZcLQMjDkP7p2CpejLzJhz3CG3DIwk/edit?usp=sharing)
 
-
 ## 1. Installing Knative on PKS
 
 [Knative with PKS](https://github.com/knative/docs/blob/master/install/Knative-with-PKS.md)
@@ -90,8 +89,9 @@ gcloud beta compute addresses list
 Update the external IP of istio-ingressgateway service
 
 ```bash
-kubectl patch svc istio-ingressgateway --namespace istio-system --patch '{"spec": { "loadBalancerIP": "104.196.68.16" }}' 
+kubectl patch svc istio-ingressgateway --namespace istio-system --patch '{"spec": { "loadBalancerIP": "104.196.68.16" }}'
 ```
+
 You will have to do the above couple of times to make sure it propogates.
 
 Alternatively, get the IP Address allocated by GCP
@@ -342,14 +342,14 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
 
     The Activator is a shared component that catches all traffic for Reserve Revisions. When it receives a request for a Reserve Revision, it transitions that Revision to Active. It then proxies the requests to the appropriate Pods.
 
-    Check there are zero pods for both your deployments. 
+    Check there are zero pods for both your deployments.
     Now lets run some load test using `siege`. Install `siege` using `homebrew` if you don't have.
 
     ```bash
     siege -r 1 -c 50 -d 2 -v -H "Host: helloworld-go.default.example.com" http://$KNATIVE_INGRESS
     ```
 
-    You will notice the activator and the autoscaler if now kicking in. 
+    You will notice the activator and the autoscaler if now kicking in.
 
     ```bash
     default              helloworld-go-qw4sr-deployment-5fc4785d96-jbwcv   3/3     Running     0          50s
@@ -360,7 +360,7 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
     ```bash
     kubectl logs -f helloworld-go-qw4sr-deployment-5fc4785d96-lqsn6 -c user-container
 
-    # You will see a stream of logs as the siege kicks in the pods 
+    # You will see a stream of logs as the siege kicks in the pods
         2019/03/19 19:23:47 Hello world sample started.
         2019/03/19 19:23:49 Hello world received a request.
         2019/03/19 19:25:07 Hello world received a request.
@@ -368,7 +368,7 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
 
     ```
 
-8. Blue-Green or Incremental Deployments (Zero Downtime) 
+8. Blue-Green or Incremental Deployments (Zero Downtime)
 
     [Routing and managing traffic with blue/green deployment](https://github.com/knative/docs/blob/master/docs/serving/samples/blue-green-deployment.md)
 
@@ -376,7 +376,7 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
    kubectl apply -f blue-green-demo-config-v1.yaml
    ```
 
-   This will deploy the blue version of an app by creating a revision and a configuration. 
+   This will deploy the blue version of an app by creating a revision and a configuration.
    Get the revision name for this version
 
    ```bash
@@ -385,7 +385,7 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
    blue-green-demo-76vs7      blue-green-demo-76vs7-service      17m   True
    ```
 
-    Next, lets create a route for this blue version. 
+    Next, lets create a route for this blue version.
 
     __*Note*__
 
@@ -403,7 +403,7 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
     blue-green-demo      blue-green-demo.default.example.com      True
     ```
 
-    Now, lets curl it and get the response. 
+    Now, lets curl it and get the response.
 
     ```bash
     curl -H "Host: blue-green-demo.default.example.com" http://$KNATIVE_INGRESS
@@ -417,21 +417,18 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
     <link rel="stylesheet" type="text/css" href="/css/app.css" />
     </head>
     <body>
-        
-            <div class="blue">App v1</div>
-        
-    </div>
+        <div class="blue">App v1</div>
     </body>
     </html>
     ```
 
-    Now, lets deploy the green version of the app. 
+    Now, lets deploy the green version of the app.
 
     ```bash
     kubectl apply -f blue-green-demo-config-v2.yaml
     ```
 
-   This will deploy the green version of an app by creating a revision and a configuration. 
+   This will deploy the green version of an app by creating a revision and a configuration.
    Get the revision name for this version
 
    ```bash
@@ -440,7 +437,7 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
    blue-green-demo-z68ng      blue-green-demo-z68ng-service      47m   True
    ```
 
-    Next, lets create a route for this green version. 
+    Next, lets create a route for this green version.
 
     __*Note*__
 
@@ -458,7 +455,7 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
     blue-green-demo      blue-green-demo.default.example.com      True
     ```
 
-    Now, lets curl it and get the response. 
+    Now, lets curl it and get the response.
 
     ```bash
     curl -H "Host: blue-green-demo.default.example.com" http://$KNATIVE_INGRESS
@@ -472,10 +469,7 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
         <link rel="stylesheet" type="text/css" href="/css/app.css" />
     </head>
     <body>
-            
-                <div class="green">App v2</div>
-            
-        </div>
+        <div class="green">App v2</div>
     </body>
     </html>
     ```
@@ -505,7 +499,7 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
     kubectl apply -f blue-green-demo-route-v3.yaml
     ```
 
-    Now, lets curl it and get the response. 
+    Now, lets curl it and get the response.
 
     ```bash
     curl -H "Host: blue-green-demo.default.example.com" http://$KNATIVE_INGRESS
@@ -519,15 +513,12 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
         <link rel="stylesheet" type="text/css" href="/css/app.css" />
     </head>
     <body>
-            
-                <div class="green">App v2</div>
-            
-        </div>
+        <div class="green">App v2</div>
     </body>
     </html>
     ```
 
-    Curl again, and you will see it load balances the traffic 50% of the time. 
+    Curl again, and you will see it load balances the traffic 50% of the time.
 
     ```bash
     curl -H "Host: blue-green-demo.default.example.com" http://$KNATIVE_INGRESS
@@ -541,10 +532,7 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
     <link rel="stylesheet" type="text/css" href="/css/app.css" />
     </head>
     <body>
-        
-            <div class="blue">App v1</div>
-        
-    </div>
+        <div class="blue">App v1</div>
     </body>
     </html>
     ```
@@ -762,7 +750,7 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
     kubectl apply -f build-gcr.yaml
     ```
 
-    Check the build resources, and pod coming up. 
+    Check the build resources, and pod coming up.
 
     ```bash
         Every 2.0s: kubectl get builds
@@ -776,13 +764,13 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
         docker-build-pod-f1af81   0/1     Completed   0          50m
     ```
 
-    Describe the build pod, to see the various steps and the containers it creates. 
+    Describe the build pod, to see the various steps and the containers it creates.
 
     ```bash
       kubectl describe pod  docker-build-pod-f1af81
     ```
 
-    Check on gcr.io image registry, and new hello-nginx folder and docker images are created in that. 
+    Check on gcr.io image registry, and new hello-nginx folder and docker images are created in that.
 
     ```bash
     gcloud beta container images describe gcr.io/fe-rajain/hello-nginx
@@ -793,7 +781,7 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
         repository: fe-rajain/hello-nginx
     ```
 
-    Next you can create a service using this image. 
+    Next you can create a service using this image.
 
     ```yaml
     apiVersion: serving.knative.dev/v1alpha1
@@ -832,12 +820,6 @@ kubectl get svc istio-ingressgateway  --namespace istio-system
    ```bash
    kubectl delete builds --all
    kubectl delete ksvc --all
-   
    ```
 
-
 ## 4. Demo Knative Eventing
-
-
-
-
