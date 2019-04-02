@@ -84,14 +84,14 @@ Knative configures an Istio Gateway CRD named knative-ingress-gateway under the 
 
 ```bash
 gcloud beta compute addresses create knative-ip --region=us-east1
+gcloud beta compute addresses list
 ```
 
 Update the external IP of istio-ingressgateway service
 
 ```bash
-kubectl patch svc istio-ingressgateway --namespace istio-system --patch '{"spec": { "loadBalancerIP": "104.196.68.16" }}' service/istio-ingressgateway
+kubectl patch svc istio-ingressgateway --namespace istio-system --patch '{"spec": { "loadBalancerIP": "104.196.68.16" }}' 
 ```
-
 You will have to do the above couple of times to make sure it propogates.
 
 Alternatively, get the IP Address allocated by GCP
